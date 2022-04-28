@@ -2,14 +2,14 @@
   "name": "html-css-js",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack && npm run open-html && npm run start-json-server",
     "start-json-server": "json-server --watch db.json",
-    "open-html": "open-cli index.html"
+    "start": "webpack && npx webpack serve"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "json-server": "^0.17.0",
-    "open-cli": "^7.0.1",
     "webpack": "^5.72.0",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
   }
 }
