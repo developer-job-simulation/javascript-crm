@@ -1,7 +1,12 @@
 ### How to setup your development environment?
-- TODO how to install git, node/npm, vscode.
-- TODO how to configure ssh for github
-- TODO If person is using Windows, they should install and use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about)
+Before you can begin, you will need git, node, and a text editor. 
+
+If you are running Windows, we recommend you install and use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about). From your WSL terminal, follow the linux instructions linked below.
+
+- [Install and Configure Git](https://www.theodinproject.com/lessons/foundations-setting-up-git)
+- [Install Node](https://www.theodinproject.com/lessons/foundations-installing-node-js)
+- [Install Text Editor (VSCode)](https://www.theodinproject.com/lessons/foundations-text-editors#vscode-installation)
+
 
 ### How to launch the app locally?
 1. If you haven't already, ensure that your development environment is set up properly. Refer to the section above for tips.
