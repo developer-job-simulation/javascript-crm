@@ -7,7 +7,7 @@ import {
   REVENUE_YTD_FIELD_NAME,
   STATUS_FIELD_NAME
 } from "./constants";
-import { ytdFormatter } from "./utils";
+import { convertDateToReadable, ytdFormatter } from "./utils";
 
 export const makeTable = async () => {
   const companies = await fetchCompanies();
@@ -23,8 +23,10 @@ export const makeTable = async () => {
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map(company => {
     const row = [];
-    company[REVENUE_YTD_FIELD_NAME]=ytdFormatter(company[REVENUE_YTD_FIELD_NAME])
-    
+    //convert revenue to space delimited format
+    company[REVENUE_YTD_FIELD_NAME]=ytdFormatter(company[REVENUE_YTD_FIELD_NAME]) 
+    //convert date to ISO format
+    company[CREATED_AT_FIELD_NAME]=convertDateToReadable(company[CREATED_AT_FIELD_NAME])
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],

@@ -12,6 +12,15 @@ const ytdFormatter=(revenue_ytd)=>{
     return formatted_ytd
 }
 
+
+const convertDateToReadable=(date)=>{
+   const dateObject=new Date(date)
+   let hh=String(dateObject.getHours())
+   let mm=String(dateObject.getMinutes())
+   return (hh.length===1?("0"+hh):hh)+":"+(mm.length===1?("0"+mm):mm)
+}
+
 module.exports={
-    ytdFormatter
+    ytdFormatter,
+    convertDateToReadable
 }
