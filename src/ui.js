@@ -25,7 +25,7 @@ export const makeTable = async () => {
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
+      new Date(company[CREATED_AT_FIELD_NAME]).toLocaleString('en', {dateStyle: 'short', timeStyle: 'short', hour12: false}),
       company[REVENUE_YTD_FIELD_NAME].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 "), 
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
