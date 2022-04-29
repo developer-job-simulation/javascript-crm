@@ -44,6 +44,9 @@ npm run start
 3. Thoroughly read issue description and make sure you understand it.
 4. Before writing/modifying any code, create a new branch in your local git. This is best practice in the industry - to create a separate branch for each issue you are working on.
 
+### How to send us you work for review
+Create and submit a pull request to this repository. We personally review each pull request and share our feedback.
+
 ### How to get help?
 
 The best way is to ask a question in our Discord community.
