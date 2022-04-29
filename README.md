@@ -1,7 +1,7 @@
 ### How to setup your development environment?
 - TODO how to install git, node/npm, vscode.
 - TODO how to configure ssh for github
-- TODO What if they are on Windows? If Windows is Professional edition, they should install and use `wsl2`. If they are on Home edition, they can't use `wsl2` and they are f*ed.
+- TODO If person is using Windows, they should install and use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about)
 
 ### How to launch the app locally?
 1. If you haven't already, ensure that your development environment is set up properly. Refer to the section above for tips.
