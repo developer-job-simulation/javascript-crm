@@ -22,3 +22,18 @@ export function formatRevenue(revenue) {
         return `${revenueArr[0]}`;
     }
 }
+
+
+// Accepts a string date-time in ISO 8601 format
+// Returns a string date-time with the time displayed in 24 hour notiation
+export function formatDateTime(datetime) {
+    // Convert to str array and separate by "T" delimiter
+    let dateTimeArr = datetime.toString().split('T');
+        
+    // Separate hours, minutes, seconds and pop seconds
+    dateTimeArr[1] = `${dateTimeArr[1]}`.split(':');
+    dateTimeArr[1].pop();;
+    
+    // Join the date back to the 24 hour time, separated by a space for readability
+    return `${dateTimeArr[0]} ${dateTimeArr[1].join(':')}`;
+}
