@@ -22,7 +22,7 @@ export const makeTable = async () => {
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map(company => {
     const row = [];
-    company[CREATED_AT_FIELD_NAME] = new Date(company[CREATED_AT_FIELD_NAME]).toString().substring(4, 21)
+    company[CREATED_AT_FIELD_NAME] = new Date(company[CREATED_AT_FIELD_NAME]).toLocaleString('en-US', { hour12: false, year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
