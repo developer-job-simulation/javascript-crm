@@ -1,4 +1,5 @@
 import {fetchCompanies} from "./api";
+import {formatRevenue} from "./reformats";
 import {
   ACCOUNT_EXECUTIVE_FIELD_NAME,
   COMPANIES_TABLE_HEADERS,
@@ -26,7 +27,7 @@ export const makeTable = async () => {
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
       company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME],
+      formatRevenue(company[REVENUE_YTD_FIELD_NAME]),
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
