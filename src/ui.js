@@ -22,6 +22,8 @@ export const makeTable = async () => {
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map(company => {
     const row = [];
+    company[REVENUE_YTD_FIELD_NAME] = formatRevenue(company[REVENUE_YTD_FIELD_NAME]); 
+    company[CREATED_AT_FIELD_NAME] = formatTime(company[CREATED_AT_FIELD_NAME]);
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
@@ -29,6 +31,7 @@ export const makeTable = async () => {
       company[REVENUE_YTD_FIELD_NAME],
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
+    
     companiesToDisplay.push(row);
   });
 
@@ -39,9 +42,28 @@ export const makeTable = async () => {
   companiesToDisplay.forEach(row => {
     const tr = table.insertRow(); //Create a new row
 
+
     row.forEach(column => {
       const td = tr.insertCell();
       td.innerText = column; // Take string from placeholder variable and append it to <tr> node
     });
   });
 };
+
+// format Revenue column to thousand
+function formatRevenue(rev){
+  let revArray = rev.toString().split('').map(Number);
+  let counter = revArray.length;
+  while(counter-3>0){
+    counter-=3;
+    revArray.splice(counter, 0,' '); 
+  }
+  return revArray.join("");
+}
+
+// display date in 24-hour format
+function formatTime(time){
+  let dt = new Date(time);
+  let options = {timeStyle:'short', hour12:false, timeZone:'UTC'};
+  return dt.toLocaleString('en', options)
+}
