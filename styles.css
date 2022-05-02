@@ -16,7 +16,7 @@ table {
     By default, when you set borders on table elements, they will look pretty ugly.
      */
   border-collapse: collapse;
-  border: 3px solid ##add8e6;
+  border: 3px solid #add8e6;
 }
 
 thead th:nth-child(1) {
