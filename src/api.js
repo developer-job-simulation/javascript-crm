@@ -10,12 +10,18 @@ export const fetchCompanies = async () => {
       style: "currency",
       currency: "USD",
     });
+
+    const dateFormatter = new Intl.DateTimeFormat("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
     const response = await axios.get(
       `${BACKEND_BASE_URI}${COMPANIES_API_PATH}`
     );
     //for each company, format revenue_ytd field to USD
     response.data.forEach((company) => {
       company.revenue_ytd = formatter.format(company.revenue_ytd);
+      company.created_at = dateFormatter.format(new Date(company.created_at));
     });
     return response.data;
   } catch (err) {
