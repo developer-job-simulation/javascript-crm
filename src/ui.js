@@ -19,9 +19,17 @@ export const makeTable = async () => {
   const companiesToDisplay = [];
   companiesToDisplay.push(COMPANIES_TABLE_HEADERS);
 
+  // make string to more readable format
+  const formatRevenue = (revenue) => {
+    return revenue.toLocaleString().replace(/,/g, " ");
+  };
+
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map((company) => {
     const row = [];
+
+    // assign the formatted revenue value
+    const revenueYTD = formatRevenue(company[REVENUE_YTD_FIELD_NAME]);
 
     // convert date to 24-hour format
     const isoDateToTime = new Date(
@@ -36,7 +44,7 @@ export const makeTable = async () => {
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
       isoDateToTime,
-      company[REVENUE_YTD_FIELD_NAME],
+      revenueYTD,
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
