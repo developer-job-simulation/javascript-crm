@@ -10,7 +10,14 @@ If you are running Windows, we recommend you install and use [Windows Subsystem 
 
 ### How to launch the app locally?
 1. If you haven't already, ensure that your development environment is set up properly. Refer to the section above for tips.
-2. Clone the repository to your local environment.
+
+2. Fork this repository to your Github account.
+   1. Click fork on the original repository as image below shows:
+      ![picture showing how to fork the repository](https://i.imgur.com/V4rn6kX.png)
+   2. Give a suitable name (generally the original name itself) and click Create Fork.
+   3. Go to the forked repository in your account.
+
+3. Clone the repository to your local environment.
    1. In Terminal, go to the folder where you would like to clone the repository to.
    2. Get a link to the repository as image below shows:
       ![alt text](https://i.imgur.com/ZPYKL1y.png)
@@ -19,20 +26,20 @@ If you are running Windows, we recommend you install and use [Windows Subsystem 
    git clone {link_to_repository}
    ```
 
-3. Go into the repository. In Unix environment you can use `cd` command for this.
-4. Install dependencies frontend app needs to run. Run:
+4. Go into the repository. In Unix environment you can use `cd` command for this.
+5. Install dependencies frontend app needs to run. Run:
 ```bash
 npm install
 ```
 
 Note that you might need sudo permissions for that.
 
-3. Start backend. Run:
+6. Start backend. Run:
 ```bash
 npm run start-json-server
 ```
 
-4. Start frontend. Run:
+7. Start frontend. Run:
 ```bash
 npm run start
 ```
