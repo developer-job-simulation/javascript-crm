@@ -26,9 +26,10 @@ export const makeTable = async () => {
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
       company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME],
+      new Intl.NumberFormat('fr-CA').format(company[REVENUE_YTD_FIELD_NAME]),
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
+    console.log(company.revenue_ytd)
     companiesToDisplay.push(row);
   });
 
@@ -38,9 +39,10 @@ export const makeTable = async () => {
 
   companiesToDisplay.forEach(row => {
     const tr = table.insertRow(); //Create a new row
-
+    
     row.forEach(column => {
       const td = tr.insertCell();
+      console.log(typeof(td.innerText))
       td.innerText = column; // Take string from placeholder variable and append it to <tr> node
     });
   });
