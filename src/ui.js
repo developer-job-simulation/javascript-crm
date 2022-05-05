@@ -8,6 +8,14 @@ import {
   STATUS_FIELD_NAME
 } from "./constants";
 
+// Write a new function that takes unformatted date and returns the formatted one
+  const timeFormatter = (date) => {
+  let dateUTC = new Date(date);
+  let hrs = `${dateUTC.getUTCHours()}`.padStart(2, 0);
+  let min = `${dateUTC.getUTCMinutes()}`.padStart(2, 0);
+  return `${hrs}:${min}`;
+};
+
 export const makeTable = async () => {
   const companies = await fetchCompanies();
   // Print result of api call to the developer console
@@ -25,7 +33,7 @@ export const makeTable = async () => {
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      `${String(new Date(company[CREATED_AT_FIELD_NAME]).getUTCHours()).padStart(2, 0)}:${String(new Date(company[CREATED_AT_FIELD_NAME]).getUTCMinutes()).padStart(2, 0)}`,
+      timeFormatter(company[CREATED_AT_FIELD_NAME]),
       company[REVENUE_YTD_FIELD_NAME],
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
