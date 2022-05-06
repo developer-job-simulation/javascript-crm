@@ -23,8 +23,6 @@ export const makeTable = async () => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); //every three digits, add a space. it uses a lookahead regex.
   }
 
-  //const hourRegex = //g
-
   function dateTo24HourFormat(dateString){
     let time = new Date(dateString)
     let formattedTime = time.toISOString().substring(11,16) //so it converts it, then returns the hour and minute portion.
