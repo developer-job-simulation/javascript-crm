@@ -1,12 +1,12 @@
-import {fetchCompanies} from "./api";
+import { fetchCompanies } from './api';
 import {
   ACCOUNT_EXECUTIVE_FIELD_NAME,
   COMPANIES_TABLE_HEADERS,
   COMPANY_NAME_FIELD_NAME,
   CREATED_AT_FIELD_NAME,
   REVENUE_YTD_FIELD_NAME,
-  STATUS_FIELD_NAME
-} from "./constants";
+  STATUS_FIELD_NAME,
+} from './constants';
 
 export const makeTable = async () => {
   const companies = await fetchCompanies();
@@ -19,13 +19,18 @@ export const makeTable = async () => {
   const companiesToDisplay = [];
   companiesToDisplay.push(COMPANIES_TABLE_HEADERS);
 
+  // A function to format the date into hours:minutes format
+  function convertDate(date) {
+    return date.substring(11, 16);
+  }
+
   // Here we simply rearrange company fields in the order in which we want to display them in UI
-  companies.map(company => {
+  companies.map((company) => {
     const row = [];
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
+      convertDate(company[CREATED_AT_FIELD_NAME]),
       company[REVENUE_YTD_FIELD_NAME],
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
@@ -33,13 +38,13 @@ export const makeTable = async () => {
   });
 
   // Programmatically create html table
-  const table = document.createElement("table");
+  const table = document.createElement('table');
   document.body.appendChild(table); // Drew the main table node on the document
 
-  companiesToDisplay.forEach(row => {
+  companiesToDisplay.forEach((row) => {
     const tr = table.insertRow(); //Create a new row
 
-    row.forEach(column => {
+    row.forEach((column) => {
       const td = tr.insertCell();
       td.innerText = column; // Take string from placeholder variable and append it to <tr> node
     });
