@@ -27,7 +27,8 @@ export const makeTable = async () => {
 
   function dateTo24HourFormat(dateString){
     let time = new Date(dateString)
-    let formattedTime = time.toISOString().substring(11,16) //so it converts it, then returns the hour and minute portion.
+    //let formattedTime = time.toISOString().substring(11,16) //so it converts it, then returns the hour and minute portion.
+    let formattedTime = time.toLocaleTimeString([], {hour12: false, hour: 'numeric', minute:'numeric'})
     // console.log(formattedTime)
     return formattedTime
   }
