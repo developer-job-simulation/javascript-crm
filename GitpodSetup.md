@@ -41,4 +41,9 @@ Change the BACKEND_BASE_URI to the value you just copied. It should look somethi
 ```
 export const BACKEND_BASE_URI = "https://3000-twbluenaxela-htmlcssjs-ztvt4m6tbxk.ws-us45.gitpod.io";
 ```
+
 And that's it! That's all there is to setup. 
+
+### Explanation (skip if you don't care)
+What happens is that normally you are running the server on your computer, and so you're using localhost as the URL to access your server. But now you're using someone else's computer (GitPods servers). So GitPod can't reach that localhost URL because localhost is only visible to YOU only and not the whole world. So you have to use the URL that GitPod and the whole world
+(that knows the URL) is able to see. 
