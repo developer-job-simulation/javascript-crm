@@ -8,6 +8,12 @@ import {
   STATUS_FIELD_NAME
 } from "./constants";
 
+export const convertDateToTime = (date) => {
+  var dateObj = new Date(date);
+  var time = ("0" + dateObj.getHours()).slice(-2)   + ":" + ("0" + dateObj.getMinutes()).slice(-2);
+  return time;
+}
+
 export const makeTable = async () => {
   const companies = await fetchCompanies();
   // Print result of api call to the developer console
@@ -25,8 +31,8 @@ export const makeTable = async () => {
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME],
+      convertDateToTime(company[CREATED_AT_FIELD_NAME]),
+      company[REVENUE_YTD_FIELD_NAME].toLocaleString(),
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
