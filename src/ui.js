@@ -13,7 +13,7 @@ export const makeTable = async () => {
   // Print result of api call to the developer console
   // Uncomment if you need it for debugging.
   // While this method of logging variables of interest to the console is primitive, but often highly valuable debugging technique
-  // console.log(companies);
+  console.log(companies);
 
   // Initialize new array and push a header row
   const companiesToDisplay = [];
@@ -26,11 +26,23 @@ export const makeTable = async () => {
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
       company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME],
+      convertMoney(company[REVENUE_YTD_FIELD_NAME]),
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
   });
+
+  function convertMoney(revenue) {
+    // For debugging - Verifying the type of data that we are getting, since it is a number and 
+    // we are using regex, we first need to convert to string 
+    // console.log(typeof revenue)
+
+    let amount = revenue.toString()
+    // console.log(typeof amount)
+
+    amount = amount.replace(/(\d)(?=(\d{3})+(?!\d))/g, `$1 `) 
+    return amount
+  } 
 
   // Programmatically create html table
   const table = document.createElement("table");
