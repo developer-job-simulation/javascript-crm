@@ -32,7 +32,7 @@ export const makeTable = async () => {
     companiesToDisplay.push(row);
   });
 
-  function convertMoney(revenue) {
+  const convertMoney = (revenue) => {
     // For debugging - Verifying the type of data that we are getting, since it is a number and 
     // we are using regex, we first need to convert to string 
     // console.log(typeof revenue)
