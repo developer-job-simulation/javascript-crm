@@ -42,4 +42,5 @@ th, td {
 /* nth-child is a pretty neat thing to use and is widely applicable in real-life projects. Reader is highly encouraged to do more reading on this. */
 tr:nth-child(1) {
     font-weight: bold;
+    background-color: lightblue;
 }
