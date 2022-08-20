@@ -25,8 +25,15 @@ export const makeTable = async () => {
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
-      new Intl.NumberFormat().format(company[REVENUE_YTD_FIELD_NAME]), // Format's Revenue YTD using commas for better readability. 
+      // company[CREATED_AT_FIELD_NAME],
+      new Date(company[CREATED_AT_FIELD_NAME])
+        .toLocaleString("en-US", {
+          dateStyle: "short",
+          timeStyle: "short",
+          hour12: false,
+        })
+        .replaceAll(/[,]/g, ""), //replaceAll is used in case the slashes need to be removed in the future.
+      new Intl.NumberFormat().format(company[REVENUE_YTD_FIELD_NAME]), // Format's Revenue YTD using commas for better readability.
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
