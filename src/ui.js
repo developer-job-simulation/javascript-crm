@@ -26,7 +26,7 @@ export const makeTable = async () => {
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
       // company[CREATED_AT_FIELD_NAME],
-      new Date(company[CREATED_AT_FIELD_NAME])
+      new Date(company[CREATED_AT_FIELD_NAME]) // Formatting the iso date/time for readability.
         .toLocaleString("en-US", {
           dateStyle: "short",
           timeStyle: "short",
