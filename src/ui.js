@@ -25,7 +25,10 @@ export const makeTable = async () => {
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
+      company[CREATED_AT_FIELD_NAME] = new Date(
+                                        company[CREATED_AT_FIELD_NAME])
+                                        .toLocaleTimeString([], 
+                                          {hour12: false, hour: '2-digit',minute: '2-digit' }), //parse the date to reflect only hours and minutes in 24-hour format. Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
       company[REVENUE_YTD_FIELD_NAME].toLocaleString("fi-FI"), //setting fi-FI allows for the numbers to be formatted with spaces between the number groups
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
