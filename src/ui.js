@@ -26,7 +26,7 @@ export const makeTable = async () => {
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
       company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME],
+      company[REVENUE_YTD_FIELD_NAME].toLocaleString("fi-FI"), //setting fi-FI allows for the numbers to be formatted with spaces between the number groups
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
@@ -35,7 +35,6 @@ export const makeTable = async () => {
   // Programmatically create html table
   const table = document.createElement("table");
   document.body.appendChild(table); // Drew the main table node on the document
-
   companiesToDisplay.forEach(row => {
     const tr = table.insertRow(); //Create a new row
 
