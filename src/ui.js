@@ -19,13 +19,17 @@ export const makeTable = async () => {
   const companiesToDisplay = [];
   companiesToDisplay.push(COMPANIES_TABLE_HEADERS);
 
+  const format24HR = (date) => {
+    return new Date(date).toLocaleTimeString([], {hour:"2-digit", minute:"2-digit", hour12: false})
+  }
+
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map(company => {
     const row = [];
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
+      format24HR(company[CREATED_AT_FIELD_NAME]),
       company[REVENUE_YTD_FIELD_NAME],
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
