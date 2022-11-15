@@ -10,10 +10,11 @@ import {
 
 export const makeTable = async () => {
   const companies = await fetchCompanies();
+  console.log(companies);
   // Print result of api call to the developer console
   // Uncomment if you need it for debugging.
   // While this method of logging variables of interest to the console is primitive, but often highly valuable debugging technique
-  // console.log(companies);
+  // git console.log(companies);
 
   // Initialize new array and push a header row
   const companiesToDisplay = [];
@@ -26,10 +27,11 @@ export const makeTable = async () => {
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
       company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME],
+      company[REVENUE_YTD_FIELD_NAME].toLocaleString('en', {style: 'currency', currency: 'USD'}),
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
+    console.log(company);
   });
 
   // Programmatically create html table
