@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "start-json-server": "json-server --watch db.json",
-    "start": "webpack && npx webpack serve"
+    "start": "webpack && npx webpack serve",
+    "start-both": "json-server --watch db.json && webpack && npx webpack serve"
   },
   "dependencies": {
     "axios": "^0.27.2",
