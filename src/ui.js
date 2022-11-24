@@ -22,7 +22,6 @@ export const makeTable = async () => {
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map((company) => {
     const row = [];
-
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
