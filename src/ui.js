@@ -22,11 +22,30 @@ export const makeTable = async () => {
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map(company => {
     const row = [];
+
+    // update REVENUE YTD with spacing for three numbers from right to left : 1000 -> 1 000
+    let YTD = company[REVENUE_YTD_FIELD_NAME];
+    const convertYTD = (YTD) => {
+      let n = YTD.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+      return n;
+    };
+    let newYTD = convertYTD(YTD);
+    
+    // update CREATED AT format to HH:MM
+    let time = company[CREATED_AT_FIELD_NAME];
+    const convertTimeFormat = (time) => {
+      let date = new Date(time);
+      let h = date.getHours();
+      let m = date.getMinutes();
+      return `${h}:${m}`;
+    };
+    let newTime = convertTimeFormat(time);
+
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME],
+      newTime,
+      newYTD,
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
