@@ -8,15 +8,15 @@ table {
     The entire column width follows the width of its heading, making for a nice way to size your table columns.
     We've coupled this with a width of 100%, meaning that the table will fill any container it is put in, and be nicely
     responsive (although it would still need some more work to get it looking good on narrow screen widths).
-     */
+    */
     table-layout: fixed;
     width: 100%;
     /*
     A border-collapse value of collapse is standard best practice for any table styling effort.
     By default, when you set borders on table elements, they will look pretty ugly.
-     */
+    */
     border-collapse: collapse;
-    border: 3px solid purple;
+    border: 3px solid lightblue;
 }
 
 thead th:nth-child(1) {
@@ -42,4 +42,5 @@ th, td {
 /* nth-child is a pretty neat thing to use and is widely applicable in real-life projects. Reader is highly encouraged to do more reading on this. */
 tr:nth-child(1) {
     font-weight: bold;
+    background-color: lightblue;
 }
