@@ -5,7 +5,13 @@
 export const BACKEND_BASE_URI = "http://localhost:3000";
 export const COMPANIES_API_PATH = "/companies";
 
-export const COMPANIES_TABLE_HEADERS = ["Company Name", "Status", "Created At", "Revenue YTD", "Account Executive"];
+export const COMPANIES_TABLE_HEADERS = [
+  "Company Name",
+  "Status",
+  "Created At",
+  "Revenue YTD",
+  "Account Executive",
+];
 
 export const COMPANY_NAME_FIELD_NAME = "company_name";
 export const STATUS_FIELD_NAME = "status";
