@@ -13,7 +13,7 @@ export const COMPANIES_TABLE_HEADERS = [
   "Account Executive",
 ];
 
-export const COMPANY_NAME_FIELD_NAME = "company_name";
+export const COMPANY_NAME_FIELD_NAME = "name";
 export const STATUS_FIELD_NAME = "status";
 export const CREATED_AT_FIELD_NAME = "created_at";
 export const REVENUE_YTD_FIELD_NAME = "revenue_ytd";

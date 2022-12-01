@@ -13,9 +13,14 @@ export const makeTable = async () => {
   // Print result of api call to the developer console
   // Uncomment if you need it for debugging.
   // While this method of logging variables of interest to the console is primitive, but often highly valuable debugging technique
-  console.log(companies);
-
+  // console.log(companies);
   // Initialize new array and push a header row
+
+  // adjust revenue format
+  const newRevenue = (number) => {
+    return new Intl.NumberFormat().format(number);
+  };
+
   const companiesToDisplay = [];
   companiesToDisplay.push(COMPANIES_TABLE_HEADERS);
 
@@ -25,13 +30,14 @@ export const makeTable = async () => {
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME],
+      // adjustment from 12HR to 24HR time
+      new Date(company[CREATED_AT_FIELD_NAME]).toLocaleString(),
+      // called func
+      newRevenue(company[REVENUE_YTD_FIELD_NAME]),
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
   });
-
   // Programmatically create html table
   const table = document.createElement("table");
   document.body.appendChild(table); // Drew the main table node on the document
