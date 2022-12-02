@@ -16,7 +16,9 @@ table {
     By default, when you set borders on table elements, they will look pretty ugly.
      */
     border-collapse: collapse;
-    border: 3px solid purple;
+
+    /* Fix the "Feature request: make table look prettier" by changing the border color to lightblue*/
+    border: 3px solid lightblue;
 }
 
 thead th:nth-child(1) {
@@ -42,4 +44,7 @@ th, td {
 /* nth-child is a pretty neat thing to use and is widely applicable in real-life projects. Reader is highly encouraged to do more reading on this. */
 tr:nth-child(1) {
     font-weight: bold;
+
+    /* Fix the "Feature request: make table look prettier" by changing the background-color to lightblue*/
+    background-color: lightblue;
 }
