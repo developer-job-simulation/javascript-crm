@@ -25,7 +25,10 @@ export const makeTable = async () => {
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
+
+      //fixed issue "Feature request: display dates in 24-hour time format"
+      new Date(company[CREATED_AT_FIELD_NAME]).toLocaleTimeString("en-US",{hourCycle:"h24", hour:"2-digit",minute:"2-digit"}),
+
       // Fix the issue "Feature request: display revenue numbers in a human readable format"
       company[REVENUE_YTD_FIELD_NAME].toLocaleString().replace(/,/g," "),
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
