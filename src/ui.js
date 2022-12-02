@@ -13,7 +13,7 @@ export const makeTable = async () => {
   // Print result of api call to the developer console
   // Uncomment if you need it for debugging.
   // While this method of logging variables of interest to the console is primitive, but often highly valuable debugging technique
-  // console.log(companies);
+  //console.log(companies);
 
   // Initialize new array and push a header row
   const companiesToDisplay = [];
@@ -25,13 +25,17 @@ export const makeTable = async () => {
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME],
+
+      //fixed issue "Feature request: display dates in 24-hour time format"
+      new Date(company[CREATED_AT_FIELD_NAME]).toLocaleTimeString("en-US",{hourCycle:"h24", hour:"2-digit",minute:"2-digit"}),
+
+      // Fix the issue "Feature request: display revenue numbers in a human readable format"
+      company[REVENUE_YTD_FIELD_NAME].toLocaleString().replace(/,/g," "),
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
   });
-
+  
   // Programmatically create html table
   const table = document.createElement("table");
   document.body.appendChild(table); // Drew the main table node on the document
