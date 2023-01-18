@@ -1,4 +1,4 @@
-import {fetchCompanies} from "./api";
+import { fetchCompanies } from "./api";
 import {
   ACCOUNT_EXECUTIVE_FIELD_NAME,
   COMPANIES_TABLE_HEADERS,
@@ -22,6 +22,10 @@ export const makeTable = async () => {
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map(company => {
     const row = [];
+    const nf = new Intl.NumberFormat('en-US');
+    company[REVENUE_YTD_FIELD_NAME] = nf.format(company[REVENUE_YTD_FIELD_NAME]).replaceAll(',',' ');
+    const date = new Date (new Date(company[CREATED_AT_FIELD_NAME]).toISOString().slice(0, -1));
+    company[CREATED_AT_FIELD_NAME] = date.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
