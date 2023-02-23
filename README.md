@@ -1,75 +1,42 @@
-# How to start working
+![JavaScript-CRM-by-JobSimulator](https://user-images.githubusercontent.com/2349518/221035162-f3b95833-6c38-4848-8f79-5b93dff896de.svg)
 
-1. Fork this repo and clone it locally. Click [here](https://github.com/developer-job-simulation/html-css-js/fork) to fork this repo.
-2. Fix the issue
-3. Create Pull Request to this repository
+# JavaScript CRM by JobSimulator.dev
 
-# How to setup your development environment?
-Before you can begin, you will need git, node, and a text editor. 
+This is a CRM built with in HTML/CSS/JS. This webapp helps our business department keep track of their interactions with clients. 
 
-If you are running Windows, we recommend you install and use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about). From your WSL terminal, follow the linux instructions linked below.
+Your job is to fix 4 issues:
 
-- [Install and Configure Git](https://www.theodinproject.com/lessons/foundations-setting-up-git)
-- [Install Node](https://www.theodinproject.com/lessons/foundations-installing-node-js)
-- [Install Text Editor (VSCode)](https://www.theodinproject.com/lessons/foundations-text-editors#vscode-installation)
+1. [Company Names are Missing](https://github.com/developer-job-simulation/javascript-crm/issues/1)
+1. [Display Dates in 24-hour Time Format](https://github.com/developer-job-simulation/javascript-crm/issues/2)
+1. [Display Revenue Numbers in a Human Readable Format](https://github.com/developer-job-simulation/javascript-crm/issues/3)
+1. [Make Table Look Prettier](https://github.com/developer-job-simulation/javascript-crm/issues/4)
 
+## Learning Objectives
 
-# How to launch the app locally?
-1. If you haven't already, ensure that your development environment is set up properly. Refer to the section above for tips.
+You will practice and gain experience with:
 
-2. Fork this repository to your Github account.
-   1. Click fork on the original repository as image below shows:
-      ![picture showing how to fork the repository](https://i.imgur.com/V4rn6kX.png)
-   2. Give a suitable name (generally the original name itself) and click Create Fork.
-   3. Go to the forked repository in your account.
+- Using ISO 8601 Dates in JavaScript
+- Working with HTML Tables
+- Applying CSS Styles to HTML Tables
+- Currency Formatting in JavaScript
+- Pulling Data from APIs
 
-3. Clone the repository to your local environment.
-   1. In Terminal, go to the folder where you would like to clone the repository to.
-   2. Get a link to the repository as image below shows:
-      ![alt text](https://i.imgur.com/ZPYKL1y.png)
-   3. Run
-   ```bash
-   git clone {link_to_repository}
-   ```
+## How to start working
 
-4. Go into the repository. In Unix environment you can use `cd` command for this.
-5. Install dependencies frontend app needs to run. Run:
-```bash
-npm install
-```
+1. Fork this repo and clone it locally.
+1. Install the dependencies by running `npm i`
+1. Run the app locally by running `npm run start-json-server` to start the backend, and `npm run start` to start the frontend.
+1. Visit `http://localhost:3000` to see the site.
+1. Fix all the issues (hints are provided as TODO comments in the code)
+1. Once all your solutions are complete, create a single Pull Request to this repository
+1. Check if your solutions passes our automated tests.
 
-Note that you might need sudo permissions for that.
+## Need help?
 
-6. Start backend. Run:
-```bash
-npm run start-json-server
-```
+The best way to ask for help is to ask our Discord community.
 
-7. Start frontend. Run:
-```bash
-npm run start
-```
+[Click here to join the Jobsimulator Discord](https://discord.com/invite/7cAkUcKbjB).
 
-# How to start working on an issue?
+## Want more challenges?
 
-1. If you haven't already, ensure that your app runs locally successfully. Refer to the section above for tips.
-2. Go to `Issues` tab in the repository and pick an issue. If you are just getting started, consider picking one of the issues that are marked as `Easy`.
-3. Thoroughly read issue description and make sure you understand it.
-4. Before writing/modifying any code, create a new branch in your local git. This is best practice in the industry - to create a separate branch for each issue you are working on.
-
-# Stack
-
-This project was built using
-
-- Vanilla Javascript
-- HTML
-- CSS
-- Webpack
-
-# How to send us you work for review
-Create and submit a pull request to this repository. We personally review each pull request and share our feedback.
-
-# How to get help?
-
-The best way is to ask a question in our Discord community.
-Please consider joining: https://discord.gg/7cAkUcKbjB
+Browse our [list of challenges](https://jobsimulator.gumroad.com/) and [join our Discord](https://discord.gg/6VsSMZaM7q) to get notified when new challenges are released.
