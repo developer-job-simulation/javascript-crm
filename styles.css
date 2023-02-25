@@ -1,5 +1,5 @@
 table {
-    /*
+  /*
     A table-layout value of fixed is generally a good idea to set on your table, as it makes the table behave a bit more predictably by default.
     Normally, table columns tend to be sized according to how much content they contain, which produces some strange results.
     With table-layout: fixed, you can size your columns according to the width of their headings, and then deal with their content as appropriate.
@@ -9,37 +9,42 @@ table {
     We've coupled this with a width of 100%, meaning that the table will fill any container it is put in, and be nicely
     responsive (although it would still need some more work to get it looking good on narrow screen widths).
      */
-    table-layout: fixed;
-    width: 100%;
-    /*
+  table-layout: fixed;
+  width: 100%;
+  /*
     A border-collapse value of collapse is standard best practice for any table styling effort.
     By default, when you set borders on table elements, they will look pretty ugly.
      */
-    border-collapse: collapse;
-    border: 3px solid purple;
+  border-collapse: collapse;
+  border: 3px solid lightblue;
+}
+
+tbody tr:first-child {
+  background-color: lightblue;
 }
 
 thead th:nth-child(1) {
-    width: 30%;
+  width: 30%;
 }
 
 thead th:nth-child(2) {
-    width: 20%;
+  width: 20%;
 }
 
 thead th:nth-child(3) {
-    width: 15%;
+  width: 15%;
 }
 
 thead th:nth-child(4) {
-    width: 35%;
+  width: 35%;
 }
 
-th, td {
-    padding: 20px;
+th,
+td {
+  padding: 20px;
 }
 
 /* nth-child is a pretty neat thing to use and is widely applicable in real-life projects. Reader is highly encouraged to do more reading on this. */
 tr:nth-child(1) {
-    font-weight: bold;
+  font-weight: bold;
 }
