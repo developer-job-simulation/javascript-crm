@@ -7,10 +7,11 @@ export async function start() {
     shell: true,
   });
   backendSocket = socket;
-  console.info("Backend is starting...");
+  console.info("4 Backend is starting...");
   await setTimeout(1000);
 }
 
 export function stop() {
+  console.info("9 Backend is stopping...");
   backendSocket.kill();
 }
