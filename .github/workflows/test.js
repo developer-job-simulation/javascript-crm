@@ -86,6 +86,11 @@ test("Solved Issue #4: make table look prettier", async () => {
     getComputedStyle(el).getPropertyValue("background-color")
   );
   assert.is(headerColor, "rgb(173, 216, 230)");
+
+  var tableBorderColor = await page.$eval("body > table", (el) =>
+    getComputedStyle(el).getPropertyValue("border-color")
+  );
+  assert.is(tableBorderColor, "rgb(173, 216, 230)");
 });
 
 test.run();
