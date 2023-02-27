@@ -22,18 +22,18 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.31.0-focal
+      image: ghcr.io/puppeteer/puppeteer:19.7.2
       # image: lironavon/docker-puppeteer-container:16.10.0
-      # options: --cap-add=SYS_ADMIN --user 1001
+      options: --cap-add=SYS_ADMIN --user 1001
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - name: Install dependencies
-        run: npm ci && cd .github/workflows && npm ci && cd ../..
+      # - uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 16
+      - name: npm install
+        run: npm i && cd .github/workflows && npm i && cd ../..
 
       # - name: Run Tests
       #   timeout-minutes: 1
@@ -51,8 +51,8 @@ jobs:
         # run: (timeout 30s (npx .github/workflows/node_modules/uvu .github/workflows >> results.txt)) || [[ $? -eq 124 ]] && echo "Done Testing."
         # run: (timeout 60s node .github/workflows/test.js >> results.txt) || echo "Done Testing."
         # run: timeout 15s node .github/workflows/test.js > results.txt || echo 'Done Testing. Results below:' && cat results.txt
-        # run: node .github/workflows/test.js # > results.txt || echo 'Done Testing. Results below:' && cat results.txt
-        run: node .github/workflows/test.js
+        run: node .github/workflows/test.js # > results.txt || echo 'Done Testing. Results below:' && cat results.txt
+
 
       # - name: Archive code coverage results
       #   uses: actions/upload-artifact@v3
