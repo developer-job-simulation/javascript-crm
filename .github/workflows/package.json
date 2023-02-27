@@ -1,0 +1,8 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "playwright": "^1.31.1",
+    "uvu": "^0.5.6"
+  },
+  "scripts": {}
+}
