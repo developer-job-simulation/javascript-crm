@@ -19,24 +19,14 @@ export const makeTable = async () => {
   const companiesToDisplay = [];
   companiesToDisplay.push(COMPANIES_TABLE_HEADERS);
 
-  // Create a new object with options for toLocaleString method to format numbers
-  const options = {
-    maximumFractionDigits: 0,
-    minimumFractionDigits: 0,
-    useGrouping: true,
-  };
-
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map((company) => {
     const row = [];
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME].toLocaleString("en-US", options).replace(
-        /,/g,
-        " "
-      ),
+      formatCreatedAt(company[CREATED_AT_FIELD_NAME]),
+      formatRevenue(company[REVENUE_YTD_FIELD_NAME]),
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
@@ -55,3 +45,22 @@ export const makeTable = async () => {
     });
   });
 };
+
+// Format revenue to display with spaces as thousands separators
+function formatRevenue(revenue) {
+  const options = {
+    maximumFractionDigits: 0,
+    minimumFractionDigits: 0,
+    useGrouping: true,
+  };
+  return revenue.toLocaleString("en-US", options).replace(/,/g, " ");
+}
+
+// Format date to display in hh:mm format
+function formatCreatedAt(createdAt) {
+  const date = new Date(createdAt);
+  const hours = ("0" + date.getHours()).slice(-2); // pad with leading zero if needed
+  const minutes = ("0" + date.getMinutes()).slice(-2); // pad with leading zero if needed
+  const formattedTime = hours + ":" + minutes;
+  return formattedTime; // Output: "03:41"
+}
