@@ -11,13 +11,12 @@ import {
 let dateConverter = (data) => {
   var newDate = ''
   let date = new Date(data)
-  if (date.getUTCHours.length < 10) {
-    newDate = date.getUTCHours() + ':' + date.getMinutes()
-    return newDate
-  } else {
-    newDate = '0' + date.getUTCHours() + ':' + date.getMinutes()
-  }
 
+  if (date.getUTCHours() < 10) {
+    newDate = '0' + date.getUTCHours() + ':' + date.getMinutes()
+  } else {
+    newDate = date.getUTCHours() + ':' + date.getMinutes()
+  }
   return newDate
 
 
@@ -35,9 +34,9 @@ export const makeTable = async () => {
   // Uncomment if you need it for debugging.
   // While this method of logging variables of interest to the console is primitive, but often highly valuable debugging technique
   // console.log(companies);
-  //let date = new Date(companies[0].created_at)
+   let date = new Date(companies[0].created_at)
 
-  //console.log(date.getUTCHours()+':'+date.getMinutes())
+   console.log(date.getUTCHours())
 
   //let test = companies[0].created_at
   //console.log('test'+dateConverter(test))
