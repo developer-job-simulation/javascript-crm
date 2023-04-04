@@ -11,7 +11,12 @@ import {
 let dateConverter = (data)=>{
   var newDate = ''
   let date = new Date (data)
-  newDate = date.getUTCHours()+':'+date.getMinutes()
+  if (date.getUTCHours.length >= 2 ){
+    newDate = date.getUTCHours()+':'+date.getMinutes()
+    return  newDate 
+  }else{
+    newDate = '0'+ date.getUTCHours()+':'+date.getMinutes()
+  }
 
   return  newDate 
 
