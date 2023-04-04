@@ -1,4 +1,4 @@
-import {fetchCompanies} from "./api";
+import { fetchCompanies } from "./api";
 import {
   ACCOUNT_EXECUTIVE_FIELD_NAME,
   COMPANIES_TABLE_HEADERS,
@@ -8,12 +8,45 @@ import {
   STATUS_FIELD_NAME
 } from "./constants";
 
+let dateConverter = (data) => {
+  var newDate = ''
+  let date = new Date(data)
+
+  if (date.getUTCHours() < 10) {
+    newDate = '0' + date.getUTCHours() + ':' + date.getMinutes()
+  } else {
+    newDate = date.getUTCHours() + ':' + date.getMinutes()
+  }
+  return newDate
+
+
+
+}
+
+function numberWithSpaces(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+};
+
+
 export const makeTable = async () => {
   const companies = await fetchCompanies();
   // Print result of api call to the developer console
   // Uncomment if you need it for debugging.
   // While this method of logging variables of interest to the console is primitive, but often highly valuable debugging technique
   // console.log(companies);
+   let date = new Date(companies[0].created_at)
+
+   console.log(date.getUTCHours())
+
+  //let test = companies[0].created_at
+  //console.log('test'+dateConverter(test))
+
+  console.log(numberWithSpaces(companies[0].revenue_ytd))
+
+  for (var i = 0; i < companies.length; i++) {
+    companies[i].created_at = dateConverter(companies[i].created_at)
+    companies[i].revenue_ytd = numberWithSpaces(companies[i].revenue_ytd)
+  }
 
   // Initialize new array and push a header row
   const companiesToDisplay = [];
