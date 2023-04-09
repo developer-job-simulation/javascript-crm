@@ -8,7 +8,7 @@ Your job is to fix 4 issues:
 
 1. ~~[Company Names are Missing](https://github.com/developer-job-simulation/javascript-crm/issues/1)~~
 1. ~~[Display Dates in 24-hour Time Format](https://github.com/developer-job-simulation/javascript-crm/issues/2)~~
-1. [Display Revenue Numbers in a Human Readable Format](https://github.com/developer-job-simulation/javascript-crm/issues/3)
+1. ~~[Display Revenue Numbers in a Human Readable Format](https://github.com/developer-job-simulation/javascript-crm/issues/3)~~
 1. [Make Table Look Prettier](https://github.com/developer-job-simulation/javascript-crm/issues/4)
 
 ## Learning Objectives
