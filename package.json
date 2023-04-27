@@ -11,5 +11,8 @@
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1"
+  },
+  "devDependencies": {
+    "jest": "^29.0.2"
   }
 }
