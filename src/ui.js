@@ -34,13 +34,13 @@ export const makeTable = async () => {
     // const hours = time.getHours();
     // const minutes = time.getMinutes();
     // const convertedTime = `${format2Digits(hours)}:${format2Digits(minutes)}`;
-    const formattedTime = (company[CREATED_AT_FIELD_NAME]).slice(11, 16);
+    // const formattedTime = (company[CREATED_AT_FIELD_NAME]).slice(11, 16);
 
     const row = [];
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      formattedTime,
+      (company[CREATED_AT_FIELD_NAME]).slice(11, 16),
       company[REVENUE_YTD_FIELD_NAME],
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
