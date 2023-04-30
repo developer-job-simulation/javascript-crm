@@ -19,14 +19,45 @@ export const makeTable = async () => {
   const companiesToDisplay = [];
   companiesToDisplay.push(COMPANIES_TABLE_HEADERS);
 
+  const convert_time_format = (dateString)=>{
+    const hour = dateString.slice(11, 13).padStart(2, "0");
+    const minute = dateString.slice(14, 16);
+    return hour+":"+minute;
+  }
+
+  const convert_revenue_format_readable = (ori_str)=>{
+    
+    if(ori_str.length<=3)
+      return String(ori_str);
+    
+    let reversedStr = (String(ori_str)).split("").reverse().join("");
+
+    let temp_array = [];
+    let temp_str1 = undefined;
+    let temp_str2 = reversedStr;
+
+    while(temp_str2.length>3){
+      temp_str1 = temp_str2.slice(0,3);
+      temp_array.push(temp_str1);
+      temp_str2 = temp_str2.slice(3);
+      if(temp_str2.length<=3)
+        temp_array.push(temp_str2);
+    }
+    let new_str = temp_array.join(" ").split("").reverse().join("");
+
+    return new_str;
+  }
+
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map(company => {
+
+    console.log();
     const row = [];
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME],
+      convert_time_format(company[CREATED_AT_FIELD_NAME]),
+      convert_revenue_format_readable(company[REVENUE_YTD_FIELD_NAME]),
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
