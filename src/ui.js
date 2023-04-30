@@ -8,10 +8,6 @@ import {
   STATUS_FIELD_NAME
 } from "./constants";
 
-function format2Digits(num) {
-  return num.toString().padStart(2, '0');
-}
-
 function formatRevenue(num) {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
@@ -31,14 +27,6 @@ export const makeTable = async () => {
 
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map(company => {
-
-    // Convert date format from ISO 8601 to hh:mm
-    // const date = new Date((company[CREATED_AT_FIELD_NAME]).slice(0, -1));
-    // const time = new Date(date.getTime());
-    // const hours = time.getHours();
-    // const minutes = time.getMinutes();
-    // const convertedTime = `${format2Digits(hours)}:${format2Digits(minutes)}`;
-    // const formattedTime = (company[CREATED_AT_FIELD_NAME]).slice(11, 16);
 
     const row = [];
     row.push(
