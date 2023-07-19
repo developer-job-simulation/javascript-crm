@@ -13,10 +13,15 @@ export const makeTable = async () => {
     // Print result of api call to the developer console
     // Uncomment if you need it for debugging.
     // While this method of logging variables of interest to the console is primitive, but often highly valuable debugging technique
-    function formatToHumanReadable(string) {
+    function formatMoneyToHumanReadable(string) {
         if (typeof string === "number") string = string.toString(10);
         return string.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
+    function formatDateToHumanReadable(string) {
+        string = string.match(/T(.*)Z/g);
+        return string[0].substring(1, 6);
+    }
+
     // Initialize new array and push a header row
     const companiesToDisplay = [];
     companiesToDisplay.push(COMPANIES_TABLE_HEADERS);
@@ -27,8 +32,8 @@ export const makeTable = async () => {
         row.push(
             company[COMPANY_NAME_FIELD_NAME],
             company[STATUS_FIELD_NAME],
-            company[CREATED_AT_FIELD_NAME],
-            formatToHumanReadable(company[REVENUE_YTD_FIELD_NAME]),
+            formatDateToHumanReadable(company[CREATED_AT_FIELD_NAME]),
+            formatMoneyToHumanReadable(company[REVENUE_YTD_FIELD_NAME]),
             company[ACCOUNT_EXECUTIVE_FIELD_NAME]
         );
         companiesToDisplay.push(row);
