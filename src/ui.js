@@ -10,7 +10,11 @@ import {
 
 const convertDatetimeToHumanReadableFormat = (datetime) => {
   const formattedDatetime = new Date(datetime);
-  return formattedDatetime.getHours() + ":" + formattedDatetime.getMinutes();
+  const hours =
+    (formattedDatetime.getHours() < 10 ? "0" : "") +
+    formattedDatetime.getHours();
+  const minutes = formattedDatetime.getMinutes();
+  return hours + ":" + minutes;
 };
 
 const convertRevenueToHumanReadableFormat = (revenueValue) => {
