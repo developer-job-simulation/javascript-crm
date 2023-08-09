@@ -13,6 +13,10 @@ const convertDatetimeToHumanReadableFormat = (datetime) => {
   return formattedDatetime.getHours() + ":" + formattedDatetime.getMinutes();
 };
 
+const convertRevenueToHumanReadableFormat = (revenueValue) => {
+  return revenueValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+};
+
 export const makeTable = async () => {
   const companies = await fetchCompanies();
   // Print result of api call to the developer console
@@ -31,7 +35,7 @@ export const makeTable = async () => {
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
       convertDatetimeToHumanReadableFormat(company[CREATED_AT_FIELD_NAME]),
-      company[REVENUE_YTD_FIELD_NAME],
+      convertRevenueToHumanReadableFormat(company[REVENUE_YTD_FIELD_NAME]),
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
