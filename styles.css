@@ -16,8 +16,12 @@ table {
     By default, when you set borders on table elements, they will look pretty ugly.
      */
     border-collapse: collapse;
-    border: 3px solid purple;
+    border: 3px solid lightblue;
 }
+
+table tr:first-child {
+    background-color: lightblue; 
+  }
 
 thead th:nth-child(1) {
     width: 30%;
