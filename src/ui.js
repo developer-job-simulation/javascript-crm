@@ -8,6 +8,15 @@ import {
   STATUS_FIELD_NAME
 } from "./constants";
 
+function formatTimeFromCreatedAt(created_at) {
+  const [, time] = created_at.split('T'); // Split the date and time parts
+  const formattedTime = time.slice(0, 5); // Extract the first 5 characters (hh:mm)
+  return formattedTime;
+}
+
+function formatNumberWithSpaces(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+}
 
 export const makeTable = async () => {
   const companies = await fetchCompanies();
@@ -20,28 +29,9 @@ export const makeTable = async () => {
   const companiesToDisplay = [];
   companiesToDisplay.push(COMPANIES_TABLE_HEADERS);
 
-  
-  function formatTimeFromCreatedAt(created_at) {
-    const [, time] = created_at.split('T'); // Split the date and time parts
-    const formattedTime = time.slice(0, 5); // Extract the first 5 characters (hh:mm)
-    return formattedTime;
-  }
-
-  function formatNumberWithSpaces(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-  }
-
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map(company => {
     const row = [];
- 
-   
-   // for local time, I use this instead:
-    /*const date = new Date(company[CREATED_AT_FIELD_NAME]); // Parse the date string as a UTC date
-    const localHour = date.getHours().toString().padStart(2, '0');
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-    const formattedTime = `${localHour}:${minutes}`; */
-
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
