@@ -9,15 +9,19 @@ table {
     We've coupled this with a width of 100%, meaning that the table will fill any container it is put in, and be nicely
     responsive (although it would still need some more work to get it looking good on narrow screen widths).
      */
-    table-layout: fixed;
+    table-layout: fixed; 
     width: 100%;
     /*
     A border-collapse value of collapse is standard best practice for any table styling effort.
     By default, when you set borders on table elements, they will look pretty ugly.
      */
     border-collapse: collapse;
-    border: 3px solid purple;
+    border: 3px solid lightblue;
 }
+
+table tr:first-child {
+    background-color: rgb(134, 218, 218); 
+  }
 
 thead th:nth-child(1) {
     width: 30%;

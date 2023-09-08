@@ -8,6 +8,16 @@ import {
   STATUS_FIELD_NAME
 } from "./constants";
 
+function formatTimeFromCreatedAt(created_at) {
+  const [, time] = created_at.split('T'); // Split the date and time parts
+  const formattedTime = time.slice(0, 5); // Extract the first 5 characters (hh:mm)
+  return formattedTime;
+}
+
+function formatNumberWithSpaces(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+}
+
 export const makeTable = async () => {
   const companies = await fetchCompanies();
   // Print result of api call to the developer console
@@ -25,8 +35,8 @@ export const makeTable = async () => {
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME],
+      formatTimeFromCreatedAt(company[CREATED_AT_FIELD_NAME]), // Format the created_at field
+      formatNumberWithSpaces(company[REVENUE_YTD_FIELD_NAME]),
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);

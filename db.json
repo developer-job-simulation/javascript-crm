@@ -2,7 +2,7 @@
   "companies": [
     {
       "id": 1,
-      "name": "Fusion LLC",
+      "company_name": "Fusion LLC",
       "status": "Qualified Lead",
       "created_at": "2021-04-27T03:41:56Z",
       "account_executive": "Abigayle Gibson",
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "name": "Techopolis Ltd.",
+      "company_name": "Techopolis Ltd.",
       "status": "Paying Customer",
       "created_at": "2021-11-23T08:45:56Z",
       "account_executive": "Joe Bond",
@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "name": "Code learning LLC",
+      "company_name": "Code learning LLC",
       "status": "Lead",
       "created_at": "2022-04-15T12:45:56Z",
       "account_executive": "Annie Ibarra",
