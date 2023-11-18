@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "start-json-server": "json-server --watch db.json",
-    "start": "webpack && npx webpack serve"
+    "start": "webpack && npx webpack serve",
+    "dev": "json-server --watch db.json && webpack && npx webpack serve",
+    "watch": "nodemon "
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -11,5 +13,8 @@
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
