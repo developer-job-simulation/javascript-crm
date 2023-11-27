@@ -28,11 +28,16 @@ export const makeTable = async () => {
       { hour: '2-digit', minute: '2-digit', hour12: false })
       .format(createdAtISO);
 
+    const revenue = company[REVENUE_YTD_FIELD_NAME];
+    const formattedRevenue = revenue.toLocaleString('en-US', 
+      { useGrouping: true, minimumFractionDigits: 0, maximumFractionDigits: 0 })
+      .replace(/,/g, ' ');
+
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
       formattedCreatedAt,
-      company[REVENUE_YTD_FIELD_NAME],
+      formattedRevenue,
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
