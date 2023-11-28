@@ -1,7 +1,3 @@
-/*
-  Storing string constants in a separate file is a good practice to use.
-  Why do this? Because here they are a single source of truth - if the change here, they will change everywhere else, too.
- */
 export const BACKEND_BASE_URI = "http://localhost:3000";
 export const COMPANIES_API_PATH = "/companies";
 
