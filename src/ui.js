@@ -47,6 +47,7 @@ export const makeTable = async () => {
   });
 
   function convertDate(date){
-    return date.slice(11,16);
+    let reformatDate = new Date(date);
+    return reformatDate.toLocaleTimeString([], { hour:"2-digit", minute:"2-digit" });
   }
 };
