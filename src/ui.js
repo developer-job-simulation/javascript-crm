@@ -48,10 +48,10 @@ export const makeTable = async () => {
 
   function convertDate(date){
     let reformatDate = new Date(date);
-    return reformatDate.toLocaleTimeString([], { hour:"2-digit", minute:"2-digit" });
+    return reformatDate.toLocaleTimeString("de-DE", { timeStyle: "short"});
   }
 
   function convertNumbers(number){
-    return number.toLocaleString().replaceAll(".", " ");
+    return number.toLocaleString("de-DE").replaceAll(".", " ");
   }
 };
