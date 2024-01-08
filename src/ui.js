@@ -1,3 +1,4 @@
+import { at } from "lodash";
 import {fetchCompanies} from "./api";
 import {
   ACCOUNT_EXECUTIVE_FIELD_NAME,
@@ -25,7 +26,7 @@ export const makeTable = async () => {
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
+      company[CREATED_AT_FIELD_NAME] = convertDate(company[CREATED_AT_FIELD_NAME]),
       company[REVENUE_YTD_FIELD_NAME],
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
@@ -44,4 +45,8 @@ export const makeTable = async () => {
       td.innerText = column; // Take string from placeholder variable and append it to <tr> node
     });
   });
+
+  function convertDate(date){
+    return date.slice(11,16);
+  }
 };
