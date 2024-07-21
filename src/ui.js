@@ -25,7 +25,7 @@ export const makeTable = async () => {
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
+      new Date(company[CREATED_AT_FIELD_NAME]).toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }),
       company[REVENUE_YTD_FIELD_NAME],
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
