@@ -19,14 +19,27 @@ export const makeTable = async () => {
   const companiesToDisplay = [];
   companiesToDisplay.push(COMPANIES_TABLE_HEADERS);
 
+  function getHours(hours){
+
+    const da = new Date(hours)
+    const hou = da.getHours()
+    const min = da.getMinutes()
+    return hou +":" + min
+  }
+  
+  function formatRevenue(amn){
+    const rev = new Intl.NumberFormat("en-USok").format(amn)
+   return rev.split(",").join(" ")
+    
+  }
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map(company => {
     const row = [];
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME],
+      getHours(company[CREATED_AT_FIELD_NAME]),
+      formatRevenue(company[REVENUE_YTD_FIELD_NAME]),
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
