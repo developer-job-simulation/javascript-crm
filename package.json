@@ -2,8 +2,8 @@
   "name": "html-css-js",
   "version": "1.0.0",
   "scripts": {
-    "start-json-server": "json-server --watch db.json",
-    "start": "webpack && npx webpack serve"
+    "start-json-server": "npx json-server --watch db.json",
+    "start": "webpack && npx webpack serve --allowed-hosts all"
   },
   "dependencies": {
     "axios": "^0.27.2",

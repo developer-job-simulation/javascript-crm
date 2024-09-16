@@ -19,8 +19,26 @@ export const makeTable = async () => {
   const companiesToDisplay = [];
   companiesToDisplay.push(COMPANIES_TABLE_HEADERS);
 
+  function numberWithSpaces(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); //every three digits, add a space. it uses a lookahead regex.
+  }
+
+  //const hourRegex = //g
+
+  function dateTo24HourFormat(dateString){
+    let time = new Date(dateString)
+    let formattedTime = time.toISOString().substring(11,16) //so it converts it, then returns the hour and minute portion.
+    // console.log(formattedTime)
+    return formattedTime
+  }
+
+
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map(company => {
+
+    company[REVENUE_YTD_FIELD_NAME] = numberWithSpaces(company[REVENUE_YTD_FIELD_NAME]); 
+    company[CREATED_AT_FIELD_NAME] = dateTo24HourFormat(company[CREATED_AT_FIELD_NAME]);
+
     const row = [];
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
