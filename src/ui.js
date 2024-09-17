@@ -13,11 +13,13 @@ export const makeTable = async () => {
   // Print result of api call to the developer console
   // Uncomment if you need it for debugging.
   // While this method of logging variables of interest to the console is primitive, but often highly valuable debugging technique
-  // console.log(companies);
+  // testing
+  console.log(companies);
 
   // Initialize new array and push a header row
   const companiesToDisplay = [];
   companiesToDisplay.push(COMPANIES_TABLE_HEADERS);
+
 
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map(company => {
@@ -25,8 +27,8 @@ export const makeTable = async () => {
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME],
+      company[CREATED_AT_FIELD_NAME].substr(11, 5),
+      company[REVENUE_YTD_FIELD_NAME].toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "),
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
