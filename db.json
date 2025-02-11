@@ -4,25 +4,25 @@
       "id": 1,
       "name": "Fusion LLC",
       "status": "Qualified Lead",
-      "created_at": "2021-04-27T03:41:56Z",
+      "created_at": "03:41",
       "account_executive": "Abigayle Gibson",
-      "revenue_ytd": 17000000
+      "revenue_ytd": "17 000 000"
     },
     {
       "id": 2,
       "name": "Techopolis Ltd.",
       "status": "Paying Customer",
-      "created_at": "2021-11-23T08:45:56Z",
+      "created_at": "08:45",
       "account_executive": "Joe Bond",
-      "revenue_ytd": 7375294
+      "revenue_ytd": "7 375 294"
     },
     {
       "id": 3,
       "name": "Code learning LLC",
       "status": "Lead",
-      "created_at": "2022-04-15T12:45:56Z",
+      "created_at": "12:45",
       "account_executive": "Annie Ibarra",
-      "revenue_ytd": 100000
+      "revenue_ytd": "100 000"
     }
   ]
 }
