@@ -22,11 +22,22 @@ export const makeTable = async () => {
   // Here we simply rearrange company fields in the order in which we want to display them in UI
   companies.map(company => {
     const row = [];
+    
+    const createdAtISO = new Date(company[CREATED_AT_FIELD_NAME]);
+    const formattedCreatedAt = new Intl.DateTimeFormat('en-US', 
+      { hour: '2-digit', minute: '2-digit', hour12: false })
+      .format(createdAtISO);
+
+    const revenue = company[REVENUE_YTD_FIELD_NAME];
+    const formattedRevenue = revenue.toLocaleString('en-US', 
+      { useGrouping: true, minimumFractionDigits: 0, maximumFractionDigits: 0 })
+      .replace(/,/g, ' ');
+
     row.push(
       company[COMPANY_NAME_FIELD_NAME],
       company[STATUS_FIELD_NAME],
-      company[CREATED_AT_FIELD_NAME],
-      company[REVENUE_YTD_FIELD_NAME],
+      formattedCreatedAt,
+      formattedRevenue,
       company[ACCOUNT_EXECUTIVE_FIELD_NAME]
     );
     companiesToDisplay.push(row);
@@ -34,6 +45,7 @@ export const makeTable = async () => {
 
   // Programmatically create html table
   const table = document.createElement("table");
+
   document.body.appendChild(table); // Drew the main table node on the document
 
   companiesToDisplay.forEach(row => {
